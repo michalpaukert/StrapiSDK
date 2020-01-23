@@ -1,0 +1,2 @@
+# StrapiSDK
+Strapi .NET SDK
