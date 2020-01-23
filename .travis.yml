@@ -1,0 +1,21 @@
+﻿language: csharp
+sudo: required
+mono: none
+dotnet: 3.0
+
+os:
+  - linux
+
+global:
+- DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
+- DOTNET_CLI_TELEMETRY_OPTOUT=true
+
+
+before_script:
+    - dotnet restore Strapi.SDK\\Strapi.SDK.csproj
+script:
+    - dotnet build Strapi.SDK\\Strapi.SDK.csproj --configuration Release
+
+after_script:
+    - dotnet pack Strapi.SDK\\Strapi.SDK.csproj --configuration Release
+    - dotnet nuget push Strapi.SDK/bin/Release/*.nupkg -k $TOKEN -s https://api.nuget.org/v3/index.json
