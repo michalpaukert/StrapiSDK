@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Strapi_SDK</RootNamespace>
     <PackageId>Strapi.SDK</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors></Authors>
     <Company>Continero s.r.o</Company>
     <Description>Strapi .NET SDK</Description>

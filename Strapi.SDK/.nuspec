@@ -3,7 +3,7 @@
     <metadata>
         <!-- Required elements-->
         <id>Strapi.SDK</id>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
         <description>.NET SDK for strapi</description>
         <authors>Continero s.r.o</authors>
       <dependencies>
