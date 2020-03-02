@@ -55,7 +55,7 @@ namespace Strapi_SDK
             return JsonConvert.DeserializeObject<IEnumerable<T>>(content);
         }
 
-        public async Task<T> GetEntry<T>(string contentType, string id)
+        public async Task<T> GetEntry<T>(string contentType, int id)
         {
             var url = $"{contentType}/{id}";
             var response = await _httpClient.GetAsync(url);
