@@ -3,9 +3,10 @@
     <metadata>
         <!-- Required elements-->
         <id>Strapi.SDK</id>
-        <version>0.0.3</version>
+        <version>0.0.4</version>
         <description>.NET SDK for strapi</description>
         <authors>Continero s.r.o</authors>
+		<repository type="git" url="https://github.com/michalpaukert/StrapiSDK" />
       <dependencies>
         <dependency id="Newtonsoft.JSON" version="12.0.3" />
       </dependencies>
