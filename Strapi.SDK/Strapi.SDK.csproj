@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>0.0.6</Version>
+    <PackageId>Strapi.SDK</PackageId>
+    <Authors>Continero s.r.o</Authors>
+    <Company>Continero s.r.o</Company>
   </PropertyGroup>
 
 </Project>
