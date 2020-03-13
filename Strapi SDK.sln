@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strapi.SDK", "Strapi.SDK\Strapi.SDK.csproj", "{F15CF51A-F567-4B7D-9A39-04253D7595CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strapi.SDK", "Strapi.SDK\Strapi.SDK.csproj", "{708DCAA4-4DE2-4B52-A71C-9CEC000638BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strapi SDK.Tests", "Strapi SDK.Tests\Strapi SDK.Tests.csproj", "{44769CEE-9151-42A3-B14A-8E9459E09F06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strapi.SDK.Tests", "Strapi.SDK.Tests\Strapi.SDK.Tests.csproj", "{F9F80B9F-6BB3-424D-A1BA-15DC7A6B29B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F15CF51A-F567-4B7D-9A39-04253D7595CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F15CF51A-F567-4B7D-9A39-04253D7595CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F15CF51A-F567-4B7D-9A39-04253D7595CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F15CF51A-F567-4B7D-9A39-04253D7595CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44769CEE-9151-42A3-B14A-8E9459E09F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44769CEE-9151-42A3-B14A-8E9459E09F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44769CEE-9151-42A3-B14A-8E9459E09F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44769CEE-9151-42A3-B14A-8E9459E09F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{708DCAA4-4DE2-4B52-A71C-9CEC000638BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{708DCAA4-4DE2-4B52-A71C-9CEC000638BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{708DCAA4-4DE2-4B52-A71C-9CEC000638BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{708DCAA4-4DE2-4B52-A71C-9CEC000638BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F80B9F-6BB3-424D-A1BA-15DC7A6B29B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F80B9F-6BB3-424D-A1BA-15DC7A6B29B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F80B9F-6BB3-424D-A1BA-15DC7A6B29B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F80B9F-6BB3-424D-A1BA-15DC7A6B29B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

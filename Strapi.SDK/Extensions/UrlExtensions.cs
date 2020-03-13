@@ -19,5 +19,10 @@ namespace Strapi_SDK.Extensions
             }
             return uri + stringBuilder;
         }
+
+        public static string BuildQuery(this string contentType, int id)
+        {
+            return $"{contentType}/{id}";
+        }
     }
 }

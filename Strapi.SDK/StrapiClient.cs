@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using Strapi_SDK.Extensions;
+﻿using Strapi_SDK.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Strapi_SDK
@@ -38,51 +38,51 @@ namespace Strapi_SDK
             response.EnsureSuccessStatusCode();
 
             var stringContent = await response.Content.ReadAsStringAsync();
-            var auth = JsonConvert.DeserializeObject<StrapiAuthResponse>(stringContent);
+            var auth = JsonSerializer.Deserialize<StrapiAuthResponse>(stringContent);
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Jwt);
         }
 
         public async Task<IEnumerable<T>> GetEntries<T>(string contentType)
         {
-            string content = await GetContent(contentType);
-            return JsonConvert.DeserializeObject<IEnumerable<T>>(content);
+            return await GetContent<IEnumerable<T>>(contentType);
         }
 
         public async Task<IEnumerable<T>> GetEntries<T>(string contentType, Dictionary<string, string> parameters)
         {
             var url = contentType.BuildQuery(parameters);
-            string content = await GetContent(url);
-            return JsonConvert.DeserializeObject<IEnumerable<T>>(content);
+            return await GetContent<IEnumerable<T>>(url);
         }
 
         public async Task<T> GetEntry<T>(string contentType, int id)
         {
-            var url = $"{contentType}/{id}";
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
+            var url = contentType.BuildQuery(id);
+            var result = await GetContent<T>(url);
 
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(content);
+            return result;
         }
 
         public async Task<T> GetEntry<T>(string contentType, Dictionary<string, string> parameters)
         {
             var url = contentType.BuildQuery(parameters);
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<T>>(content).FirstOrDefault();
+            var result = await GetContent<IEnumerable<T>>(url);
+            return result.SingleOrDefault();
         }
 
         public async Task<int> Count(string contentType)
         {
             var url = $"{contentType}/count";
+            var response = await _httpClient.GetStringAsync(url);
+
+            return int.Parse(response);
+        }
+
+        private async Task<T> GetContent<T>(string url)
+        {
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
-            return int.Parse(content);
+            var stream = await response.Content.ReadAsStreamAsync();
+            return await stream.DeserializeJsonFromStream<T>();
         }
 
         public Task<byte[]> GetFile(string id)
@@ -90,18 +90,10 @@ namespace Strapi_SDK
             throw new NotImplementedException();
         }
 
+
         public void Dispose()
         {
             _httpClient.Dispose();
-        }
-
-        private async Task<string> GetContent(string url)
-        {
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-
-            var content = await response.Content.ReadAsStringAsync();
-            return content;
         }
     }
 }
