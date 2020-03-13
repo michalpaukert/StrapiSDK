@@ -11,10 +11,10 @@ global:
 - DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 
-before_script:
-    - dotnet restore Strapi.SDK\\Strapi.SDK.csproj
+Install:
+    - dotnet restore
 script:
-    - dotnet build Strapi.SDK\\Strapi.SDK.csproj --configuration Release
+    - dotnet build
 
 after_script:
     - dotnet pack Strapi.SDK\\Strapi.SDK.csproj --configuration Release
